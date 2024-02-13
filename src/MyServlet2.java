@@ -11,30 +11,24 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-public class MyServlet1 extends HttpServlet {
+@WebServlet("/MyServlet2")
+public class MyServlet2 extends HttpServlet {
 	
+    
    
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("/text.html");
 		PrintWriter out = response.getWriter();
 		
-		String uname = request.getParameter("uname");
-		String upass = request.getParameter("upass");
-		
-		out.print("welcome "+uname);
-		
-		
-		//method to get session 
-		HttpSession session =  request.getSession();
-		
-		//store value in object
-		session.setAttribute("name", "uname");
-	
-		out.print("<a href='MyServlet2'>Click to visit</a>");
-		out.close();
-	
-	
+		//method to get  existing session 
+				HttpSession session =  request.getSession(false);
+				
+				//to get value in object
+				String uname = (String) session.getAttribute("name");
+				
+				out.print("Welcome to Servlet2 "+uname);
 	}
 
 }
