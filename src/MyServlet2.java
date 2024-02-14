@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/MyServlet2")
+
 public class MyServlet2 extends HttpServlet {
 	
     
